@@ -1,11 +1,19 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.13.53",
+  "version": "0.13.54",
   "minimum_supported_version": "0.12.1",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.13.54",
+      "date": "2026-09-11",
+      "changes": [
+        "Documents website Make video and Stop making video controls, shared episode concurrency checks and durable start receipts that survive pruning without duplicate generation.",
+        "Explains live scene updates and bounded motion-direction compaction before story review while preserving exact dialogue, voice, cast and timing. Updates the existing 88-tool public contract."
+      ]
+    },
     {
       "version": "0.13.53",
       "date": "2026-09-11",
