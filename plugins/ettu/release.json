@@ -1,11 +1,18 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.13.58",
+  "version": "0.13.59",
   "minimum_supported_version": "0.12.1",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.13.59",
+      "date": "2026-09-11",
+      "changes": [
+        "The floating Chat button now uses the Ettu face logo at the bottom right and opens a right-side panel, preserving app navigation, saved conversations, drafts and streamed replies."
+      ]
+    },
     {
       "version": "0.13.58",
       "date": "2026-09-11",
