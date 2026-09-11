@@ -15,6 +15,14 @@ This client contract is exported from the ettu application repository. The inven
 
 ## Results, errors and retries
 
+### Analytics choices
+
+`get_analytics_preference` is an authenticated baseline read returning `{mode, version, updated_at}`. `set_analytics_preference` requires `characters:write`, the current `expected_version`, and an explicit user request. Modes are `anonymous` (default, unlinked server event counts), `identified` (activity linked to the verified account), and `off` (stop optional tracking and discard queued events). On a version conflict, read again before reconciling the user's choice. Do not change consent as a side effect of connecting an assistant or creating content.
+
+The website exposes the same account preference in **Privacy choices** from the sidebar, Home footer and My Settings. Browser cookies require a separate explicit choice on that device; MCP consent never grants it. Changing consent does not delete previously delivered analytics or affect sign-in, generation or publication. Private text, prompts, search terms and generated artwork are excluded from analytics. No session replay or automatic click capture is enabled.
+
+### Responses
+
 Successful calls return serialized JSON in an MCP text block. Most tools return only that block; `get_character_artwork` and `get_character_image` can also return an original-file `resource_link` and an inline PNG `image` block. Parse the text block for metadata, and present image/resource blocks using the client’s supported UI. No tools currently advertise `outputSchema` or return `structuredContent`.
 
 ```json
@@ -276,7 +284,7 @@ The publisher regenerates this README and JSON together from the application rep
 ## Generated tool inventory
 
 <!-- BEGIN GENERATED MCP CONTRACT -->
-There are **86 tools**: 4 baseline, 41 read-scoped, and 41 write-scoped. Every HTTP MCP request still requires an authorized ettu OAuth token.
+There are **88 tools**: 5 baseline, 41 read-scoped, and 42 write-scoped. Every HTTP MCP request still requires an authorized ettu OAuth token.
 
 The fields below summarize inputs. `?` means optional. See [contract.json](contract.json) for exact JSON Schemas, nested properties, defaults, descriptions and annotations. Additional runtime/database checks are described above.
 
@@ -296,6 +304,7 @@ The fields below summarize inputs. `?` means optional. See [contract.json](contr
 | [delete_channel_episode](#delete_channel_episode) | `characters:write` | id: UUID; expected_version: integer |
 | [delete_character_version](#delete_character_version) | `characters:write` | id: UUID; version: integer; expected_version: integer; confirmation_name?: string; confirm?: true |
 | [delete_episode_scene](#delete_episode_scene) | `characters:write` | id: UUID; expected_version: integer |
+| [get_analytics_preference](#get_analytics_preference) | baseline | none |
 | [get_channel](#get_channel) | `characters:read` | id: UUID |
 | [get_channel_creation_options](#get_channel_creation_options) | `characters:read` | character?: UUID |
 | [get_channel_episode](#get_channel_episode) | `characters:read` | id: UUID |
@@ -353,6 +362,7 @@ The fields below summarize inputs. `?` means optional. See [contract.json](contr
 | [review_channel_suggestion](#review_channel_suggestion) | `characters:write` | id: UUID; accept: boolean; reply?: string = "" |
 | [search_discovery](#search_discovery) | `characters:read` | universe?: "clay" \| "anime" \| "vintage" \| "all" = "all"; query?: string = ""; limit?: integer = 6 |
 | [send_inbox_message](#send_inbox_message) | `characters:write` | recipient_profile: UUID; subject: string; body: string |
+| [set_analytics_preference](#set_analytics_preference) | `characters:write` | mode: "anonymous" \| "identified" \| "off"; expected_version: integer |
 | [set_channel_character](#set_channel_character) | `characters:write` | channel: UUID; character: UUID; is_main: boolean |
 | [set_channel_subscription](#set_channel_subscription) | `characters:write` | channel: UUID; subscribed: boolean |
 | [set_character_follow](#set_character_follow) | `characters:write` | id: UUID; following: boolean |
@@ -452,6 +462,12 @@ Scope: characters:write. Annotations: `{"readOnlyHint":false,"destructiveHint":t
 Director only: permanently delete a scene using its current version. Later scenes are renumbered.
 
 Scope: characters:write. Annotations: `{"readOnlyHint":false,"destructiveHint":true,"openWorldHint":true}`.
+
+### get_analytics_preference
+
+Read your account's optional analytics choice and current version. Anonymous counts are the default. Applies to Web, MCP and background generation outcomes; cookies remain a separate browser choice.
+
+Scope: baseline (authenticated connection). Annotations: `{"readOnlyHint":true,"idempotentHint":true}`.
 
 ### get_channel
 
@@ -794,6 +810,12 @@ Scope: characters:read. Annotations: `{"readOnlyHint":true}`.
 Send a private message to another user's public profile UUID. Resolve @handles with resolve_ettu_handle first. Only send messages under the user's request or standing authorization.
 
 Scope: characters:write. Annotations: `{"readOnlyHint":false,"destructiveHint":false,"openWorldHint":true}`.
+
+### set_analytics_preference
+
+Change your optional analytics choice only on your explicit request. Read get_analytics_preference first. anonymous keeps unlinked counts, identified allows activity linked to your account, and off stops future optional analytics including queued deliveries. Changes apply to website, MCP and background generation. Existing analytics are not erased. Does not consent to browser cookies, change authentication, generate or publish anything.
+
+Scope: characters:write. Annotations: `{"readOnlyHint":false,"destructiveHint":false,"idempotentHint":false,"openWorldHint":false}`.
 
 ### set_channel_character
 

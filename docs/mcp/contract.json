@@ -807,6 +807,23 @@
       "required_scope": "characters:write"
     },
     {
+      "name": "get_analytics_preference",
+      "description": "Read your account's optional analytics choice and current version. Anonymous counts are the default. Applies to Web, MCP and background generation outcomes; cookies remain a separate browser choice.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "idempotentHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "required_scope": null
+    },
+    {
       "name": "get_channel",
       "description": "Read an accessible channel, cast, role, version, ordered episode summaries, and latest_episode with its public video thumbnail preview_url when available. Use get_channel_episode for scenes. Website: /channels/{id}; Watch contains playback, while Studio groups Story, Video plan and Activity. Reading previews never generates artwork or publishes anything.",
       "inputSchema": {
@@ -2880,6 +2897,45 @@
         "readOnlyHint": false,
         "destructiveHint": false,
         "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      },
+      "required_scope": "characters:write"
+    },
+    {
+      "name": "set_analytics_preference",
+      "description": "Change your optional analytics choice only on your explicit request. Read get_analytics_preference first. anonymous keeps unlinked counts, identified allows activity linked to your account, and off stops future optional analytics including queued deliveries. Changes apply to website, MCP and background generation. Existing analytics are not erased. Does not consent to browser cookies, change authentication, generate or publish anything.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "enum": [
+              "anonymous",
+              "identified",
+              "off"
+            ],
+            "description": "anonymous: unlinked counts; identified: link activity to your account; off: stop optional analytics. This never grants browser cookie consent."
+          },
+          "expected_version": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991,
+            "description": "The version returned by get_analytics_preference. Prevents overwriting a newer choice."
+          }
+        },
+        "required": [
+          "mode",
+          "expected_version"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": false,
+        "openWorldHint": false
       },
       "execution": {
         "taskSupport": "forbidden"

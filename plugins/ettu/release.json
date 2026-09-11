@@ -1,11 +1,19 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.13.52",
+  "version": "0.13.53",
   "minimum_supported_version": "0.12.1",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.13.53",
+      "date": "2026-09-11",
+      "changes": [
+        "Adds authenticated get_analytics_preference and set_analytics_preference tools for the same account privacy choice available on the website. Writes require explicit intent and the current preference version; MCP never grants browser cookie consent.",
+        "Documents anonymous, identified and off modes, queued-event withdrawal, and the limited PostHog event contract. Updates the public contract to 88 tools."
+      ]
+    },
     {
       "version": "0.13.52",
       "date": "2026-09-11",
