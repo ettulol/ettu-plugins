@@ -1,11 +1,19 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.13.54",
+  "version": "0.13.55",
   "minimum_supported_version": "0.12.1",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.13.55",
+      "date": "2026-09-11",
+      "changes": [
+        "Status animation requests allow one image submission with no automatic paid redraw. Saved-image processing can resume, and explicit owner retries keep their existing request-key semantics.",
+        "Documents tolerant status position/scale review, preserved identity/style/framing checks and the approved GIF fallback. The authenticated MCP contract remains 88 tools."
+      ]
+    },
     {
       "version": "0.13.54",
       "date": "2026-09-11",
