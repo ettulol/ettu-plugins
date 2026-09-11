@@ -1,11 +1,19 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.13.57",
+  "version": "0.13.58",
   "minimum_supported_version": "0.12.1",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.13.58",
+      "date": "2026-09-11",
+      "changes": [
+        "Website Chat opens from a floating button into a left-side panel, keeping app navigation usable, drafts intact and replies streaming when minimized.",
+        "Conversations contains saved and archived history; existing chat links open the panel. Display actions add no model work or MCP operations, and private state clears on account changes."
+      ]
+    },
     {
       "version": "0.13.57",
       "date": "2026-09-11",
