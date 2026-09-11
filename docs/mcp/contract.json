@@ -1858,11 +1858,15 @@
     },
     {
       "name": "list_assistant_conversations",
-      "description": "List your private saved Ettu assistant conversations, including an optional archived list.",
+      "description": "List your private saved Ettu assistant conversations, newest first. Use include_archived=true for all history, or archived=true for only archived conversations. Pass next_offset as offset for the next page.",
       "inputSchema": {
         "type": "object",
         "properties": {
           "archived": {
+            "default": false,
+            "type": "boolean"
+          },
+          "include_archived": {
             "default": false,
             "type": "boolean"
           },

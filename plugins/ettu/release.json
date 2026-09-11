@@ -1,11 +1,19 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.13.59",
+  "version": "0.13.60",
   "minimum_supported_version": "0.12.1",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.13.60",
+      "date": "2026-09-11",
+      "changes": [
+        "Chat has a single Ettu logo header with new, history, expand and close icons, a minimal composer and a launcher that hides while open.",
+        "New chat creates its saved conversation on the first message, preserving creation and send keys on explicit retries. History supports confirmed deletion and include_archived=true in website and MCP; legacy rename/archive tools remain compatible."
+      ]
+    },
     {
       "version": "0.13.59",
       "date": "2026-09-11",
