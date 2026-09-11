@@ -1,11 +1,19 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.13.56",
+  "version": "0.13.57",
   "minimum_supported_version": "0.12.1",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.13.57",
+      "date": "2026-09-11",
+      "changes": [
+        "Documents authenticated hosted Chat with private saved conversations, resumable replies and exact owner approvals through shared website/MCP operations; hosted sends only on an explicit request to use the Ettu assistant.",
+        "New video renders use gemini-omni-1.1-flash through resumable Google Interactions. The format remains 720p, 16:9 and 4/6/8-second shots; saved-source retries and delivery receipts retain their original model. The public contract now includes 97 tools."
+      ]
+    },
     {
       "version": "0.13.56",
       "date": "2026-09-11",
