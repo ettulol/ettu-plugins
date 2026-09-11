@@ -5,6 +5,7 @@ This client contract is exported from the ettu application repository. The inven
 ## Connection and authorization
 
 - Transport: Streamable HTTP at `https://ettu.lol/mcp`. Website: [ettu.lol](https://ettu.lol).
+- The website's **Connect your AI** guide offers **Codex** (default, including CLI commands) and **Claude Code**. **ChatGPT** and **Claude** are marked **Coming soon** for new setup. Install from `https://github.com/ettulol/ettu-plugins` using `ettu@ettu-plugins`; the plugin name is still `ettu`. Existing authenticated MCP connections and their permissions are unchanged. **Manage connected assistants** opens **My Settings**. This guidance and navigation add no product-data operation or MCP tool.
 - Connect through ettu OAuth authorization-code + PKCE. Discovery is under `/.well-known/oauth-authorization-server` and `/.well-known/oauth-protected-resource/mcp` on the MCP origin. Approve the connection with your invited/approved Clerk account. Send the resulting ettu bearer token, not a Clerk session token, to `/mcp`.
 - Initialization metadata advertises the ettu title, website and public yellow icon at `https://ettu.lol/brand/pwa-512.png` (`image/png`, 512×512). Icon display is optional and controlled by the host; the image requires no bearer token.
 - Identity comes from the authenticated connection. Tool arguments never select the acting owner/director. Public user IDs mean profile UUIDs, not Clerk IDs or private account UUIDs.

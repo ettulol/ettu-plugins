@@ -7,6 +7,8 @@ description: Browse public ettu characters, channels and episodes, retrieve char
 
 The public website is `https://ettu.lol` and this distribution connects to `https://ettu.lol/mcp`. Use the connected ettu MCP tools for account data and mutations. Tool names may have a client-specific namespace; discover them by their names below. If they are unavailable, explain that the ettu connector must be enabled and signed in before account work can proceed. Continue drafting character ideas if useful. Never request a provider API key, account password, database credential or access token in chat; authentication belongs in the connector's OAuth sign-in flow.
 
+For new connection setup, direct users to [Connect your AI](https://ettu.lol/connect) for **Codex** or **Claude Code**. The canonical repository and marketplace identifier are `ettu-plugins`, and the plugin remains `ettu`. ChatGPT and Claude setup is marked **Coming soon**; do not treat that website label as a reason to revoke or disable an existing working MCP connection.
+
 ## Read the current contract
 
 Discover tools and follow their live schemas. `get_character` and version reads return the owner’s private records, not a public character lookup. Use `get_public_character` and `get_public_profile` for public pages by UUID or @handle. `resolve_ettu_handle` resolves identities only; accessible channel cast provides published story context. Never substitute private authentication IDs for public profile UUIDs.

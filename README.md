@@ -2,11 +2,11 @@
 
 Install ettu's MCP connection and skills together. Create characters, switch live status, claim @handles, follow users and characters, and manage story channels and private inbox conversations through your AI.
 
-**Website:** [ettu.lol](https://ettu.lol) · **MCP endpoint:** `https://ettu.lol/mcp` · **Bundle:** 0.13.51
+**Website:** [ettu.lol](https://ettu.lol) · **MCP endpoint:** `https://ettu.lol/mcp` · **Bundle:** 0.13.52
 
 Use [ettulol/ettu-plugins](https://github.com/ettulol/ettu-plugins) when your AI app asks for a **marketplace repository**. Use `https://ettu.lol/mcp` when it asks for an **MCP server URL**. The hosted service runs on ettu; users install only configuration and skills, then sign in with their own approved ettu account. No local server or API key is needed.
 
-Read the [MCP contract](docs/mcp/README.md) for the 72 tools, scopes and workflows, or [release notes](plugins/ettu/release.json) for changes.
+Read the [MCP contract](docs/mcp/README.md) for the 86 tools, scopes and workflows, or [release notes](plugins/ettu/release.json) for changes.
 
 ## Install in Codex
 
@@ -36,15 +36,13 @@ Choose **user** scope to use it across your projects. Follow the install summary
 
 The two catalogs point to the same `plugins/ettu` directory. Claude reads `.claude-plugin/marketplace.json`; Codex reads `.agents/plugins/marketplace.json`. See [Claude marketplace documentation](https://code.claude.com/docs/en/plugin-marketplaces).
 
-## Claude desktop and ChatGPT
+## ChatGPT and Claude — coming soon
 
-In Claude, open **Customize → Plugins → Personal plugins + → Add marketplace → Add from a repository**, paste the GitHub repository URL, then install ettu. You can also upload the **plugin ZIP** from a release; GitHub's archive of the whole marketplace is not the same package. Complete the connector sign-in. Cloud connections need the hosted HTTPS endpoint. See [Claude installation and marketplace setup](https://support.claude.com/en/articles/13837440-use-plugins-in-claude).
-
-ChatGPT setup first registers the ettu service, then connects the skill to that registered connection. A Git URL or ZIP attached to an ordinary chat does not install a connection. Follow [ChatGPT setup](docs/chatgpt.md). OpenAI workspace GitHub marketplace import and public directory submission are separate distribution paths; a GitHub push alone does not publish a universal-directory listing.
+New connections are currently guided through **Codex** and **Claude Code**. ChatGPT and Claude setup is **Coming soon**. Existing authenticated MCP connections continue to work; this does not revoke access or remove installed connections. [ChatGPT integration notes](docs/chatgpt.md) remain available for maintainers and existing installations.
 
 ## What you can do
 
-- Create a character in Clay or Anime with a personality, appearance, voice direction, a name of up to 100 characters, and 3–50 favorites and hates each. Universe selection is permanent.
+- Create a character in Clay, Anime or Vintage with a personality, appearance, voice direction, a name of up to 100 characters, and 3–50 favorites and hates each. Universe selection is permanent.
 - Browse public characters, episodes and creator profiles. Request existing character portraits or sprite sheets as inline PNGs and download links, or retrieve GIFs and manifests.
 - Preview private drafts and publish ready artwork explicitly. Private characters appear only to their creator; public discovery shows published characters.
 - Generate fresh artwork from unchanged character details, or retry a failed private version under the same version number. Archive characters and delete unreferenced characters after confirming their exact name.

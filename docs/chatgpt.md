@@ -1,5 +1,7 @@
 # ChatGPT setup
 
+New ChatGPT setup is marked **Coming soon** in ettu. These notes are retained for maintainers and existing registered connections; use [Codex or Claude Code](../README.md) for new setup.
+
 ChatGPT supports plugins, but repository/local-source availability depends on the surface and workspace policy. The default ettu package supplies a direct HTTP MCP configuration for Codex and Claude. For ChatGPT, connect to ettu and add the bundled skills using the steps below.
 
 1. In ChatGPT, enable **Settings → Security and login → Developer mode**, if available.
