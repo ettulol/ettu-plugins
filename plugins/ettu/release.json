@@ -1,11 +1,19 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.13.61",
+  "version": "0.13.62",
   "minimum_supported_version": "0.12.1",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.13.62",
+      "date": "2026-09-11",
+      "changes": [
+        "Website creation shortcuts start character, channel and episode conversations; the header Create button opens the choices, and episode prompts retain the current channel.",
+        "The hosted assistant has a light, playful voice while keeping creative choices, exact approvals and consequences clear. Prompt delivery retries keep their original keys."
+      ]
+    },
     {
       "version": "0.13.61",
       "date": "2026-09-11",
