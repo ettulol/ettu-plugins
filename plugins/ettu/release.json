@@ -1,11 +1,20 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.13.70",
+  "version": "0.13.71",
   "minimum_supported_version": "0.12.1",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.13.71",
+      "date": "2026-09-12",
+      "changes": [
+        "Studio uses Scenes, Storyboard and Activity. Create a text-only storyboard with create_episode_storyboard, then animate its exact ready version separately with create_episode_animation.",
+        "Replaces animate_channel_episode and removes per-shot timing, clip-reuse arguments and retry_episode_video. New animations go straight to a private preview without automatic video quality review; creators decide whether to publish.",
+        "Clarifies episode publication through set_episode_publication, channel publication through update_channel visibility, and deletion tools for scenes, episodes and channels. Existing history and publication boundaries remain intact."
+      ]
+    },
     {
       "version": "0.13.70",
       "date": "2026-09-12",
