@@ -36,7 +36,7 @@ Generation first draws one private front-facing full-body image and pauses at `a
 
 `rename_character` changes metadata without generation or a version. Read `get_character_settings`, then use the current `expected_name`; a published name changes immediately. Whole-character deletion and final-private-version deletion require explicit approval, `confirm=true`, and the exact current `confirmation_name`. Archive/unarchive is available for published characters. Archives leave discovery but retain their public profile. Photos retain their saved appearance independently of character deletion.
 
-`set_character_status` manages mood/activity separately from versions and publication. Existing ready status artwork is reused. Explicit redraws use `regenerate_animation=true` and a durable key; the previous approved GIF remains visible until replacement succeeds. `list_character_statuses` and `get_character_status` only read. Current main-character selection, public names, handles and follows use their corresponding shared account tools.
+`set_character_status` manages activity (what a character is doing), separately from mood, versions and publication. `set_character_mood` sets or clears a separate public emotion without generating artwork. `list_character_statuses` lists both activity and mood choices; `get_character_status` reads both. New photos capture mood with the published reference to guide expression. Historical emotional statuses become moods without starting generation or discarding old animation receipts. Old emotion keys are accepted only with an existing redraw’s original request key to recover that receipt; they cannot start a new activity animation. Existing ready status artwork is reused. Explicit redraws use `regenerate_animation=true` and a durable key; the previous approved GIF remains visible until replacement succeeds. `list_character_statuses` and `get_character_status` only read. Current main-character selection, public names, handles and follows use their corresponding shared account tools.
 
 ## Photo booth and Photo album
 
@@ -53,7 +53,11 @@ The chat's **Take photo** starter begins a short interview, one focused question
 5. Accept through `respond_photo_booth_invitation` with the owned invited character, `accept=true`, and the user’s explicitly chosen `pose` in that same call. If missing, ask “What pose would you like your character to be doing?” Never accept first and return later for a pose.
 6. Every invitee must accept with a pose. The last acceptance automatically queues exactly one image. Declining omits pose and cancels the whole photo. Reactions never count as acceptance. Only the organizer can cancel while invitations are pending.
 
-Accepted poses are final. Retry uncertain decisions with the same decision and pose. Reads, retries, favorites and album operations never authorize another photo.
+Accepted poses are final. Retry uncertain decisions with the same decision and pose. Reads, delivery retries, favorites and album operations never authorize another photo.
+
+The organizer can permanently delete a photo with `delete_photo_booth_photo`, removing its gallery/album entries, pending invitations and stored image through the shared revocation pipeline. Repeating deletion is safe, and generation receipts prevent resurrection. `retake_photo_booth_photo` deliberately makes a new image of a ready or failed photo while keeping the original. Group retakes reuse all accepted poses privately, without new invitations. Every character must still be active, published and owned by the same creator; current references and moods are captured. Retakes use a fresh durable `request_key`; uncertain delivery reuses that key and source `id`, even after either photo was removed. Never reveal guests' poses to the organizer.
+
+New photos receive an automatically selected scene title of at most six letters, based on the finished image. A fixed vocabulary prevents personal text from becoming a caption; an unavailable title step falls back to Moment. A subtle Ettu wordmark is embedded in the lower-right corner of the PNG before storage and sharing. Older photos also gain the mark during migration to R2, without being redrawn. These finishing steps preserve the image checkpoint and never resubmit a paid image on retry.
 
 `list_photo_booth_photos` supports public, mine, favorites, album and in_progress scopes, universe filters and bounded pagination. `get_photo_booth_photo` includes public image/download links when ready and only the current actor’s personal collection choices. Use `set_photo_reaction` for happy, love, shocked, sad, scared or laugh. `set_photo_favorite` manages a personal favorite. `list_photo_albums`, `create_photo_album`, `update_photo_album`, `delete_photo_album` and `set_photo_album_membership` mirror album management. Deleting an album deletes organization only. Photo download/share links support sharing; do not claim to have posted externally. The website’s Share with Friends dialog uses device sharing when available, with download and copy-link fallbacks. World-specific reaction artwork uses the same six reaction keys.
 
@@ -63,7 +67,7 @@ Home and Search browse published characters through `browse_discovery` and `sear
 
 `get_my_activity` returns owner-scoped character artwork, status animations and photo jobs with safe labels and links. `get_live_status` supports character, my_characters and my_activity topics; the website multiplexes these through authenticated SSE with a polling fallback. At most 50 explicit character resources and one of each collection topic are allowed. No raw provider payloads appear in compact status.
 
-`get_activity_feed` is the unified private feed: character generation and extra artwork, actionable photo invitations, organizer acceptance/decline updates and photo progress/results. Attention items appear first, then running work, then recent history, 50 per page. `get_activity_summary` supplies running, waiting and unread counts. `mark_activity_read` uses exact item IDs, kinds and displayed statuses, so acknowledging earlier work cannot hide its later completion. `set_activity_reaction` reacts to an invitation or decision using its message_id. Accept with the owner’s chosen pose or decline through `respond_photo_booth_invitation`. Written prompts remain private. Direct messages and replies are unsupported; the former Inbox API and tools have been removed. Existing personal messages do not appear in the feed.
+`get_activity_feed` is the unified private feed: character generation and extra artwork, actionable photo invitations, organizer acceptance/decline updates and photo progress/results. Pages contain at most 50 items. `sort=desc` (default) shows newest first; `sort=asc` shows oldest first. `kind=all` or a specific activity kind filters before pagination. Use `offset` for subsequent pages; `total` counts matching items while running/waiting/unread counts cover all activity. `get_activity_summary` supplies running, waiting and unread counts. `mark_activity_read` uses exact item IDs, kinds and displayed statuses, so acknowledging earlier work cannot hide its later completion. `set_activity_reaction` reacts to an invitation or decision using its message_id. Accept with the owner’s chosen pose or decline through `respond_photo_booth_invitation`. Written prompts remain private. Direct messages and replies are unsupported; the former Inbox API and tools have been removed. Existing personal messages do not appear in the feed.
 
 `get_analytics_preference` and `set_analytics_preference` expose the same anonymous/identified/off choices as account settings, using the current version. Telemetry identifiers must not replace verified acting identities.
 
@@ -80,7 +84,7 @@ The publisher regenerates this README and JSON together from the application rep
 ## Generated tool inventory
 
 <!-- BEGIN GENERATED MCP CONTRACT -->
-There are **70 tools**: 5 baseline, 29 read-scoped, and 36 write-scoped. Every HTTP MCP request still requires an authorized ettu OAuth token.
+There are **73 tools**: 5 baseline, 29 read-scoped, and 39 write-scoped. Every HTTP MCP request still requires an authorized ettu OAuth token.
 
 The fields below summarize inputs. `?` means optional. See [contract.json](contract.json) for exact JSON Schemas, nested properties, defaults, descriptions and annotations. Additional runtime/database checks are described above.
 
@@ -98,7 +102,8 @@ The fields below summarize inputs. `?` means optional. See [contract.json](contr
 | [delete_assistant_conversation](#delete_assistant_conversation) | `characters:write` | id: UUID; confirm: true |
 | [delete_character_version](#delete_character_version) | `characters:write` | id: UUID; version: integer; expected_version: integer; confirmation_name?: string; confirm?: true |
 | [delete_photo_album](#delete_photo_album) | `characters:write` | id: UUID; expected_name: string |
-| [get_activity_feed](#get_activity_feed) | `characters:read` | offset?: integer = 0 |
+| [delete_photo_booth_photo](#delete_photo_booth_photo) | `characters:write` | id: UUID |
+| [get_activity_feed](#get_activity_feed) | `characters:read` | offset?: integer = 0; sort?: "desc" \| "asc" = "desc"; kind?: "all" \| "character_image" \| "character_artwork" \| "character_angles" \| "character_avatar" \| "status_animation" \| "photo_invitation" \| "photo_response" \| "photo_progress" \| "photo_ready" \| "photo_failed" \| "photo_cancelled" = "all" |
 | [get_activity_summary](#get_activity_summary) | `characters:read` | none |
 | [get_analytics_preference](#get_analytics_preference) | baseline | none |
 | [get_assistant_conversation](#get_assistant_conversation) | `characters:read` | id: UUID; before?: integer |
@@ -139,12 +144,14 @@ The fields below summarize inputs. `?` means optional. See [contract.json](contr
 | [respond_assistant_action](#respond_assistant_action) | `characters:write` | id: UUID; run_id: UUID; tool_call_id: UUID; approve: boolean; confirmation_name?: string |
 | [respond_photo_booth_invitation](#respond_photo_booth_invitation) | `characters:write` | id: UUID; character: UUID; accept: boolean; pose?: string |
 | [restore_character_version](#restore_character_version) | `characters:write` | id: UUID; version: integer; expected_version: integer; interview: array&lt;object&gt; |
+| [retake_photo_booth_photo](#retake_photo_booth_photo) | `characters:write` | id: UUID; request_key: UUID |
 | [retry_character_extra_artwork](#retry_character_extra_artwork) | `characters:write` | id: UUID; version: integer; expected_revision_id: UUID; expected_version: integer; artwork_id: UUID; request_key: UUID |
 | [search_discovery](#search_discovery) | `characters:read` | universe?: "clay" \| "anime" \| "vintage" \| "all" = "all"; query?: string = ""; limit?: integer = 6 |
 | [send_assistant_message](#send_assistant_message) | `characters:write` | id: UUID; text: string; request_key: UUID |
 | [set_activity_reaction](#set_activity_reaction) | `characters:write` | id: UUID; reaction: "👍" \| "❤️" \| "😂" \| "🎉" \| null |
 | [set_analytics_preference](#set_analytics_preference) | `characters:write` | mode: "anonymous" \| "identified" \| "off"; expected_version: integer |
 | [set_character_follow](#set_character_follow) | `characters:write` | id: UUID; following: boolean |
+| [set_character_mood](#set_character_mood) | `characters:write` | id: UUID; mood: "happy" \| "sad" \| "worried" \| "calm" \| "excited" \| "curious" \| "surprised" \| "angry" \| "bored" \| "proud" \| "disappointed" \| "loving" \| null |
 | [set_character_status](#set_character_status) | `characters:write` | id: UUID; status: "chilling" \| "eating" \| "working" \| "listening_to_music" \| "watching_tv" \| "happy" \| "sad" \| "bored" \| "nervous" \| "laughing" \| "in_love" \| "angry" \| "proud" \| "disappointed" \| "traveling" \| "on_a_call" \| "lost_stare" \| "coding" \| "painting" \| "studying" \| "exercising" \| "hanging_out" \| null; retry_animation?: boolean = false; regenerate_animation?: boolean = false; request_key?: UUID |
 | [set_ettu_handle](#set_ettu_handle) | `characters:write` | type: "user" \| "character"; id?: UUID; handle?: string |
 | [set_follow](#set_follow) | `characters:write` | target: string; following: boolean; type?: "user" \| "character" |
@@ -229,9 +236,15 @@ Delete your album organization when requested, using its exact current expected_
 
 Scope: characters:write. Annotations: `{"readOnlyHint":false,"destructiveHint":true,"idempotentHint":true,"openWorldHint":true}`.
 
+### delete_photo_booth_photo
+
+Organizer only: permanently delete the requested photo or unfinished request from everyone's galleries and albums, revoke its stored image and remove pending invitations. Repeating deletion is safe. Saved generation receipts remain to prevent delivery retries from recreating it. This does not delete any characters or other photos.
+
+Scope: characters:write. Annotations: `{"readOnlyHint":false,"destructiveHint":true,"idempotentHint":true,"openWorldHint":true}`.
+
 ### get_activity_feed
 
-Read your unified Activity feed: character generation and optional artwork, pending group photo invitations, organizer acceptance/decline updates, and photos in progress, ready, failed or cancelled. Up to 50 rows; attention items first, running work next, then recent history. Counts cover all pages. Written photo prompts stay private to their authors. Only this account’s activity is included, even for public photos. Reads never mark items read or start generation. Use respond_photo_booth_invitation to accept with an explicit pose or decline, and the existing character tools for requested approval/retries. There are no direct messages or replies between users.
+Read your private Activity feed, up to 50 rows per page. sort=desc (newest first, default) or asc; kind=all or a specific activity type. offset paginates the filtered results; total counts matching items, while running/waiting/unread counts cover all your activity. Includes character generation and optional artwork, photo invitations, acceptance/decline updates and photos in progress, ready, failed or cancelled. Written prompts stay private to their authors. Reads never mark items read or start generation. Use respond_photo_booth_invitation to accept with an explicit pose or decline. There are no direct messages or replies between users.
 
 Scope: characters:read. Annotations: `{"readOnlyHint":true,"destructiveHint":false,"idempotentHint":true}`.
 
@@ -285,7 +298,7 @@ Scope: characters:read. Annotations: `{"readOnlyHint":true,"destructiveHint":fal
 
 ### get_character_status
 
-Read the current public activity/mood, matching animation state, and displayed GIF for your published character. Never changes version history.
+Read the current public activity (status), separate mood, matching activity animation state, and displayed GIF for your character. Never changes version history or generates artwork.
 
 Scope: characters:read. Annotations: `{"readOnlyHint":true}`.
 
@@ -351,7 +364,7 @@ Scope: characters:read. Annotations: `{"readOnlyHint":true,"destructiveHint":fal
 
 ### list_character_statuses
 
-List the supported ettu activity/mood statuses. These are independent of artwork generation state and version history.
+List supported activities (statuses) and separate moods. Status can queue its missing activity animation; setting mood is free metadata and never generates artwork. Neither changes version history.
 
 Scope: baseline (authenticated connection). Annotations: `{"readOnlyHint":true}`.
 
@@ -475,6 +488,12 @@ Restore a retained ready version as a new private draft; publish_character is re
 
 Scope: characters:write. Annotations: `{"readOnlyHint":false,"destructiveHint":false,"idempotentHint":false,"openWorldHint":true}`.
 
+### retake_photo_booth_photo
+
+Organizer only: intentionally retake a ready or failed photo, keeping the original. Reuses the organizer's background, occasion, pose and roster, with current published character versions. A selfie queues one new image. A group reuses every participant's accepted pose privately and queues one new image without sending invitations; every character must still belong to the same creator and be active/published. Never reveal guests' poses to the organizer. Use a new UUID request_key only for an intentional new retake; reuse the same key and id after uncertain delivery, even if the original or retake was deleted. Returns the new photo receipt. Ask for edits and use create_photo_booth_photo if the user wants different choices.
+
+Scope: characters:write. Annotations: `{"readOnlyHint":false,"destructiveHint":false,"idempotentHint":true,"openWorldHint":true}`.
+
 ### retry_character_extra_artwork
 
 On the owner's request, retry only failed extra angles or a face portrait for an owned retained version. Read get_character_extra_artwork first and use its exact identifiers. A fresh request_key starts one intentional new job; delivery retries reuse the exact original key and arguments, even after pruning. Does not redraw the approved picture, create a character version, or change publication. Never retry automatically after failure.
@@ -511,9 +530,15 @@ Compatibility tool for character UUIDs. Prefer set_follow for new calls; it supp
 
 Scope: characters:write. Annotations: `{"readOnlyHint":false,"destructiveHint":false,"idempotentHint":true,"openWorldHint":true}`.
 
+### set_character_mood
+
+Set your published character's public mood separately from their activity: happy, sad, worried, calm, excited, curious, surprised, angry, bored, proud, disappointed or loving. null clears mood. Owner only; unarchive first. Never starts generation, redraws a GIF or changes status, personality or version history. New photo references capture this mood to guide expression; existing photos keep their saved mood.
+
+Scope: characters:write. Annotations: `{"readOnlyHint":false,"destructiveHint":false,"idempotentHint":true}`.
+
 ### set_character_status
 
-Set your published character's public activity/mood without creating a version or changing its definition or interview. Use null to clear it. May be called under the user's standing authorization for automatic status changes. A missing action GIF is queued once; the character's default GIF is displayed until it passes review. Reuse ready GIFs by default. On an explicit redraw request, set regenerate_animation=true with a new UUID request_key to replace even a ready animation; reuse that key if the result is uncertain. Pending generation is reused. The previous approved status GIF stays visible until its replacement passes review. retry_animation remains available for failed/rejected animations only; do not combine the two options.
+Set your published character's public activity (status), independently of mood, version history, definition and interview. Use null to clear it; use set_character_mood for emotions. Historical emotion keys are only accepted to recover an existing redraw using its original request_key; they cannot start new status work. May be called under the user's standing authorization for automatic status changes. A missing action GIF is queued once; the character's default GIF is displayed until it passes review. Reuse ready GIFs by default. On an explicit redraw request, set regenerate_animation=true with a new UUID request_key; reuse that key if the result is uncertain. Pending generation is reused. The previous approved status GIF stays visible until its replacement passes review. retry_animation remains available for failed/rejected animations only; do not combine the two options.
 
 Scope: characters:write. Annotations: `{"readOnlyHint":false,"destructiveHint":false,"idempotentHint":false,"openWorldHint":true}`.
 

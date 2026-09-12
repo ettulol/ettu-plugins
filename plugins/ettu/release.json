@@ -1,11 +1,21 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.16.2",
+  "version": "0.17.0",
   "minimum_supported_version": "0.16.0",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.17.0",
+      "date": "2026-09-12",
+      "changes": [
+        "Photo organizers can delete photos or request a new retake through the website, chat and MCP. Group retakes reuse accepted poses privately, keep the original and retain durable request receipts.",
+        "Activity has bounded pages, ascending/descending date sorting and activity-type filters through both website and MCP.",
+        "Character activity and mood are separate. Mood updates never generate artwork; new photo references capture mood for expression.",
+        "New photos get short scene titles of at most six letters and a subtle embedded Ettu watermark. Save-to-album controls are more compact."
+      ]
+    },
     {
       "version": "0.16.2",
       "date": "2026-09-12",
@@ -39,7 +49,7 @@
       "changes": [
         "Approving a new character publishes its reviewed picture immediately. Extra angles and a face portrait run independently in the background; MCP can inspect and retry failed extra artwork without replacing the approved look.",
         "Photo pose prompts stay private to their authors; background and occasion stay with the organizer. Infer selfie or group mode from selected guests. Favorites is built in alongside up to five custom albums.",
-        "Home shows Latest characters and Latest photos. Account and creator avatars prefer the main character\u2019s face portrait, with the approved picture as fallback."
+        "Home shows Latest characters and Latest photos. Account and creator avatars prefer the main character’s face portrait, with the approved picture as fallback."
       ]
     },
     {
@@ -109,7 +119,7 @@
       "date": "2026-09-12",
       "changes": [
         "Rename a character immediately through rename_character or the inline pencil beside its name, without creating a version or redrawing artwork. Current-name checks protect against conflicting edits; existing saved artwork stays intact.",
-        "Make a new version opens chat for the selected look. Capture agreed clothing and other creative changes in the new version\u2019s profile and actual interview, keeping other details and explicit publication boundaries.",
+        "Make a new version opens chat for the selected look. Capture agreed clothing and other creative changes in the new version’s profile and actual interview, keeping other details and explicit publication boundaries.",
         "Current names stay consistent across owner/public profiles, version lists, search and creator avatars, including after restoring or pruning an older artwork version."
       ]
     },
@@ -136,7 +146,7 @@
       "date": "2026-09-12",
       "changes": [
         "Create a text-only storyboard first: fewer meaningful shots focused on dialogue and message, with no generated opening pictures. New create_episode_storyboard and list_episode_storyboards tools share the website workflow.",
-        "Animate an exact ready storyboard separately into one private 4\u201330 second video using published character portraits and native video continuation. Publish the finished version explicitly; story/cast changes require a new storyboard.",
+        "Animate an exact ready storyboard separately into one private 4–30 second video using published character portraits and native video continuation. Publish the finished version explicitly; story/cast changes require a new storyboard.",
         "Durable planning and video receipts, conservative provider retry handling and earlier video history are preserved. The application update is server-side; updating this plugin refreshes assistant guidance.",
         "Privacy choices now show decorative plates with cookies, crumbs and salad; their consent behavior is unchanged."
       ]
@@ -169,7 +179,7 @@
       "version": "0.13.65",
       "date": "2026-09-12",
       "changes": [
-        "Saved chat portraits remain visible after approval and across history, renewing the exact retained candidate\u2019s private URL. Duplicate suppression stays within one reply; status checks do not add images.",
+        "Saved chat portraits remain visible after approval and across history, renewing the exact retained candidate’s private URL. Duplicate suppression stays within one reply; status checks do not add images.",
         "Invitations and character pages share channel-style tabs, yellow selections, theme-aware solid actions and readable hover states. Studio creation is compact, and ready draft guidance moves onto the badge."
       ]
     },
@@ -177,7 +187,7 @@
       "version": "0.13.64",
       "date": "2026-09-11",
       "changes": [
-        "Collection creation stays in the header and chat; a director\u2019s Create episode action moves to Studio\u2019s left episode list and works in empty channels.",
+        "Collection creation stays in the header and chat; a director’s Create episode action moves to Studio’s left episode list and works in empty channels.",
         "The sidebar brings together privacy, legal and contact icons with a single compact theme control. Home has no footer; unpublished character cards use teal and user chat bubbles use yellow with black text."
       ]
     },
@@ -637,7 +647,7 @@
       "version": "0.13.9",
       "date": "2026-09-08",
       "changes": [
-        "Channel creators now find confirmed deletion under Settings \u2192 Danger zone on the channel details page. The same delete_channel MCP approval and ownership checks apply.",
+        "Channel creators now find confirmed deletion under Settings → Danger zone on the channel details page. The same delete_channel MCP approval and ownership checks apply.",
         "Channel deletion now supports Clerk accounts without a legacy Supabase login. Durable receipts preserve safe retries and report pending public-media removal.",
         "The outlined et letters are slightly thicker across the website and downloadable wordmarks."
       ]
@@ -677,7 +687,7 @@
       "changes": [
         "Creator-only frame previews let users inspect retained, content-reviewed character sprites after a universe/style or other quality failure. get_character and get_character_version accept include_generated_frames=true; previewing never approves publication.",
         "set_character_status can redraw even a completed status sprite/GIF with regenerate_animation=true and a UUID request_key. Reuse the key after an uncertain response. Pending generation is reused and the previous approved GIF remains visible through replacement generation or failure.",
-        "Creators can change a character\u2019s status or request a redraw directly on its website profile. Status and artwork replacement remain separate from character versions.",
+        "Creators can change a character’s status or request a redraw directly on its website profile. Status and artwork replacement remain separate from character versions.",
         "Episode director planning and repair decisions now use GPT-5.6 Sol with medium reasoning; artwork reviews keep their separate model. Remote MCP updates server-side; updating this bundle refreshes assistant guidance."
       ]
     },
@@ -730,10 +740,10 @@
       "date": "2026-09-06",
       "changes": [
         "Production ettu plugin for https://ettu.lol/mcp, with OAuth sign-in and installation guidance for Codex, Claude and ChatGPT.",
-        "Character interviews, permanent Clay and Anime universes, personality and voice direction, private artwork previews, version history and explicit publication. Names allow up to 100 characters; favorites and hates allow 3\u201350 distinct items each.",
+        "Character interviews, permanent Clay and Anime universes, personality and voice direction, private artwork previews, version history and explicit publication. Names allow up to 100 characters; favorites and hates allow 3–50 distinct items each.",
         "Live moods and activities with status GIFs generated on first use, plus public profiles, main characters, unique handles and following.",
         "Story channels with director controls, cast invitations, episodes, scenes, staff proposals and private inbox conversations. Scene guidance preserves scenery, personality, voice and continuity; episode videos are published explicitly.",
-        "The ettu-update skill checks release metadata, explains available changes and guides the host\u2019s plugin update process.",
+        "The ettu-update skill checks release metadata, explains available changes and guides the host’s plugin update process.",
         "Yellow ettu dot branding for the plugin and both skills, with self-contained image assets and the public PNG at https://ettu.lol/brand/pwa-512.png.",
         "Public MCP contract documentation includes all 55 tools, input schemas, permissions and workflow requirements."
       ]
