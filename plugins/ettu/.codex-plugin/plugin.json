@@ -1,6 +1,6 @@
 {
   "name": "ettu",
-  "version": "0.17.0",
+  "version": "0.17.1",
   "description": "Create ettu characters, take photos together, organize photo albums, and check for plugin updates.",
   "author": {
     "name": "ettu",
@@ -11,7 +11,7 @@
   "interface": {
     "displayName": "ettu",
     "shortDescription": "Create characters with personality and animated sprites",
-    "longDescription": "Create and manage ettu characters, artwork, handles and follows. Take selfies and group photos, accept invitations with a pose, organize private albums, and exchange private messages through authenticated MCP.",
+    "longDescription": "Create and manage ettu characters, artwork, handles and follows. Take selfies and group photos, accept invitations with a pose, organize private albums, and follow character and photo activity through authenticated MCP.",
     "developerName": "ettu",
     "category": "Productivity",
     "capabilities": [
