@@ -1,11 +1,20 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.13.72",
+  "version": "0.13.73",
   "minimum_supported_version": "0.12.1",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.13.73",
+      "date": "2026-09-12",
+      "changes": [
+        "Activity combines In progress, Invitations and Inbox in one sidebar destination, with a running-work indicator, combined unread cue and separate tab counts. Previous invitation/message links keep working.",
+        "Senders and recipients can read shared suggestion conversations. Directors Accept or Reject with an optional shared note of up to 140 characters; accepting no longer changes story content. Exact decision retries do not duplicate messages.",
+        "Apply separately opens chat for the accepted suggestion, reads current story content and reconciles agreed edits. Generation and publication remain separate requests. New get_inbox_summary provides the same private unread counts through MCP; authors retain their own suggestion history after leaving staff."
+      ]
+    },
     {
       "version": "0.13.72",
       "date": "2026-09-12",
