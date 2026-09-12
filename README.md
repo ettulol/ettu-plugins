@@ -1,6 +1,6 @@
 # ettu plugins
 
-Install ettu's MCP connection and skills together. Create characters, switch live status, claim @handles, follow users and characters, and take photos, organize albums and exchange private inbox messages through your AI.
+Install ettu's MCP connection and skills together. Create characters, switch live status, claim @handles, follow users and characters, and take photos, organize albums and follow activity and photo notifications through your AI.
 
 **Website:** [ettu.lol](https://ettu.lol) · **MCP endpoint:** `https://ettu.lol/mcp` · **Bundle:** 0.13.53
 
@@ -44,7 +44,7 @@ New connections are currently guided through **Codex** and **Claude Code**. Chat
 
 - Create a character in Clay, Anime or Vintage with a personality, appearance, voice direction, a name of up to 100 characters, and 3–50 favorites and hates each. Universe selection is permanent.
 - Browse public characters, photos and creator profiles. Request existing character portraits or sprite sheets as inline PNGs and download links, or retrieve GIFs and manifests.
-- Preview private drafts and publish ready artwork explicitly. Private characters appear only to their creator; public discovery shows published characters.
+- Review a new character’s private first look: approving it publishes that picture immediately, with optional angles and a face portrait following in the background. Updates to existing characters stay private until explicitly published.
 - Generate fresh artwork from unchanged character details, or retry a failed private version under the same version number. Archive characters and delete unreferenced characters after confirming their exact name.
 - Set live moods and activities independently of revisions. Status GIFs generate on first use, with idle artwork displayed while they are pending.
 - Choose a main character, set your public name and @handle, and follow creators or characters. Ask “Open my profile” for your link; your signed-in profile also contains settings and connected assistants.

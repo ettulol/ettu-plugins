@@ -1,11 +1,20 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.15.0",
-  "minimum_supported_version": "0.15.0",
+  "version": "0.16.0",
+  "minimum_supported_version": "0.16.0",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.16.0",
+      "date": "2026-09-12",
+      "changes": [
+        "Activity is one private feed for character generation and extra artwork, inline photo invitations, organizer acceptance/decline updates, and ready or failed photos. Pending actions appear first, with running work and recent history below.",
+        "New get_activity_feed, get_activity_summary, mark_activity_read and set_activity_reaction tools mirror the website. Acceptance includes the user's private pose in one action; delivery retries retain that exact choice and pose.",
+        "Direct messages, text replies and the former Inbox API/tools are removed. Historical personal messages are excluded; read acknowledgements never hide a newer generation result."
+      ]
+    },
     {
       "version": "0.15.0",
       "date": "2026-09-12",

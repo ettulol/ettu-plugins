@@ -1,6 +1,6 @@
 # Ettu plugin
 
-Create characters, take selfies and group photos, organize Photo albums, manage handles and follows, and exchange private inbox messages through authenticated MCP. Installation adds the ettu and ettu-update skills and connection configuration; it does not generate artwork.
+Create characters, take selfies and group photos, organize Photo albums, manage handles and follows, and follow activity and photo notifications through authenticated MCP. Installation adds the ettu and ettu-update skills and connection configuration; it does not generate artwork.
 
 Connect at `https://ettu.lol/mcp` using Ettu OAuth. Use an approved account; never put provider keys in a client configuration. The public [MCP contract](../../docs/mcp/README.md) lists operations and constraints. Discover the connected server’s live tools before using them.
 
