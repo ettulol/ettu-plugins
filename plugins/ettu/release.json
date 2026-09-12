@@ -1,11 +1,20 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.16.1",
+  "version": "0.16.2",
   "minimum_supported_version": "0.16.0",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.16.2",
+      "date": "2026-09-12",
+      "changes": [
+        "Completed photos move to verified Cloudflare R2 delivery, with temporary Supabase images removed after a short rollout grace period. Existing photo links continue to work.",
+        "New photos capture the exact published character version and retain it in UI/MCP photo details. Historical versions are never guessed from current profiles.",
+        "Normal sign-in and first-account creation open Home with chat ready. The account menu labels the AI connection guide Nerdy stuff."
+      ]
+    },
     {
       "version": "0.16.1",
       "date": "2026-09-12",

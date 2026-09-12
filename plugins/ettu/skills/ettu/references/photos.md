@@ -1,6 +1,6 @@
 # Photos and invitations
 
-Use live schemas for exact arguments. The same verified-owner services power the website and MCP. For a new photo, interview for missing choices one question at a time, reusing what the user already supplied. The Take photo chat action begins this interview; it does not create the photo or invite anyone yet.
+Use live schemas for exact arguments. The same verified-owner services power the website and MCP. Use returned image/download URLs directly; verified photos are delivered from the edge. Each member has a saved `character_version` when recorded, which remains fixed if the character later changes. Older photos may not have recorded a version; do not infer one from the current profile. For a new photo, interview for missing choices one question at a time, reusing what the user already supplied. The Take photo chat action begins this interview; it does not create the photo or invite anyone yet.
 
 - Find an owned published character using `get_photo_booth_options(kind: "mine")`. No query shows the main character and three recent others. Search for additional characters.
 - For guests, provide the selected owned character and a nonempty query. Search stays within that universe. Never cross universes or infer an invitee’s pose.
