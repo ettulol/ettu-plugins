@@ -1,11 +1,20 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.13.74",
+  "version": "0.13.75",
   "minimum_supported_version": "0.12.1",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.13.75",
+      "date": "2026-09-12",
+      "changes": [
+        "Photo booth adds private character selfies and group pictures beneath Characters, with the same six operations available through authenticated MCP.",
+        "Organizers choose the background, optional occasion, their own pose and invited characters. Each guest accepts with a pose in one action; the last acceptance automatically takes the photo. Any decline stops the entire group photo.",
+        "Private participant access, fixed rosters and poses, expiring image links, durable creation receipts and exact decision retries prevent unintended sharing or duplicate generation. Invitations and completion updates appear in Activity and their shared inbox threads."
+      ]
+    },
     {
       "version": "0.13.74",
       "date": "2026-09-12",
