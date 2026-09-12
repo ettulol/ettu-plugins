@@ -1,11 +1,20 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.13.73",
+  "version": "0.13.74",
   "minimum_supported_version": "0.12.1",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.13.74",
+      "date": "2026-09-12",
+      "changes": [
+        "Chat shows the latest tool activity in one expandable history and keeps replies reasonably concise, without unsolicited ideas or follow-up offers. Character and channel collections share Home card sizing.",
+        "Accept and Reject no longer take a personal note. Participants can set, replace or remove one reaction per message through the website and set_inbox_message_reaction. Reactions do not decide invitations or authorize story changes.",
+        "Apply asks whether to use an accepted suggestion as is or make tweaks and waits for the user before editing. Current content, explicit generation/publication and safe retry boundaries remain in place."
+      ]
+    },
     {
       "version": "0.13.73",
       "date": "2026-09-12",
