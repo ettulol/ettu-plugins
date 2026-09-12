@@ -1,11 +1,19 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.13.65",
+  "version": "0.13.66",
   "minimum_supported_version": "0.12.1",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.13.66",
+      "date": "2026-09-12",
+      "changes": [
+        "Website Chat offers native browser dictation into a reviewable draft, with no automatic sends and microphone cleanup when chat is hidden or the conversation/account changes.",
+        "Tabs use neutral gray hover in both themes. My profile joins the account menu; redundant cast-flow links, version helper text and the main-character button are removed, creator avatars lose the yellow rim, and artwork advice is labeled Things to keep in mind."
+      ]
+    },
     {
       "version": "0.13.65",
       "date": "2026-09-12",
