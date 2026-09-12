@@ -1,11 +1,19 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.13.67",
+  "version": "0.13.68",
   "minimum_supported_version": "0.12.1",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.13.68",
+      "date": "2026-09-12",
+      "changes": [
+        "Episode creation uses Animate Story and Studio uses Plan. Channels without published episodes share the green blueprint background; redundant channel-card footer rows are removed.",
+        "Featured in Channels and list_character_channels include accessible unfinished cast channels for the character owner, with no episode or preview. Other viewers still receive only published appearances, and private cards clear on account changes."
+      ]
+    },
     {
       "version": "0.13.67",
       "date": "2026-09-12",
