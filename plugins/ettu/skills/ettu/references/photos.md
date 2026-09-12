@@ -1,10 +1,11 @@
 # Photos and invitations
 
-Use live schemas for exact arguments. The same verified-owner services power the website and MCP.
+Use live schemas for exact arguments. The same verified-owner services power the website and MCP. For a new photo, interview for missing choices one question at a time, reusing what the user already supplied. The Take photo chat action begins this interview; it does not create the photo or invite anyone yet.
 
 - Find an owned published character using `get_photo_booth_options(kind: "mine")`. No query shows the main character and three recent others. Search for additional characters.
 - For guests, provide the selected owned character and a nonempty query. Search stays within that universe. Never cross universes or infer an invitee’s pose.
 - Collect the organizer’s character, background, pose, guest roster and finally optional occasion before `create_photo_booth_photo`. Selfie has no guests; group has 1–5 guests from other creators. Sending invitations requires the user’s instruction. An intentional photo uses a new UUID `request_key`; uncertain delivery preserves the exact arguments and key.
+- The rendering uses each participant’s published personality, favorites, dislikes and traits saved with their invitation. Scene-relevant differences can appear as expressions and small gestures while preserving every chosen pose and the background. Do not alter profiles, force a conflict or describe private prompts. Let the finished photo be the surprise.
 - `get_activity_feed` includes invitations with the selected character and participant state alongside progress and photo results. `list_photo_booth_photos(invitations_only: true)` also reads pending invitations. `get_photo_booth_photo` reads one request and its participant state.
 - `respond_photo_booth_invitation` accepts with `accept: true` and the user’s `pose` in the same call. Ask “What pose would you like your character to be doing?” if missing. Declining uses `accept: false` with no pose and cancels the whole group. Everyone must accept. The last acceptance automatically queues one image.
 - The organizer may cancel only while invitations are pending. Accepted poses are final. Reactions never accept or decline invitations.

@@ -1,11 +1,20 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.16.0",
+  "version": "0.16.1",
   "minimum_supported_version": "0.16.0",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.16.1",
+      "date": "2026-09-12",
+      "changes": [
+        "Take photo starts a concise interview for missing character, setting, pose and guest choices before creating a photo or sending invitations.",
+        "Photo generation uses the published personalities, favorites, dislikes and traits saved with each participant, adding individual expressions and scene-relevant reactions while preserving chosen poses and private prompts.",
+        "Photo filters match Home, album tabs use the shared selected style, Love leads the reaction picker, reacted hearts look pressed, and compact controls and brand-yellow frames are aligned across themes."
+      ]
+    },
     {
       "version": "0.16.0",
       "date": "2026-09-12",
