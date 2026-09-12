@@ -1,11 +1,20 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.13.75",
+  "version": "0.13.76",
   "minimum_supported_version": "0.12.1",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.13.76",
+      "date": "2026-09-12",
+      "changes": [
+        "Try another look opens an optional field for picture adjustments before drawing; regenerate_character_image and regenerate_character accept the same changes through MCP.",
+        "Tweaks use the selected picture and preserve earlier visual changes through portrait approval and the final sprite. Saved profile fields remain separate; edited failed sprite retries require fresh image approval.",
+        "Exact request arguments, pinned private edit references and retained receipts preserve ownership, concurrency and delivery retries without duplicate generation."
+      ]
+    },
     {
       "version": "0.13.75",
       "date": "2026-09-12",
