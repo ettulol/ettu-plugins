@@ -1,11 +1,19 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.13.66",
+  "version": "0.13.67",
   "minimum_supported_version": "0.12.1",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.13.67",
+      "date": "2026-09-12",
+      "changes": [
+        "My Characters offers a subtle Make main action for published characters using the same verified-owner MCP selection. Profile uses a peace hand and Settings uses a gear.",
+        "New transparent sprites use clear gaps between poses and uniform fitting to prevent adjacent-frame fragments in GIFs. Saved artwork and delivery receipts remain unchanged; existing quality checks and paid-attempt limits still apply."
+      ]
+    },
     {
       "version": "0.13.66",
       "date": "2026-09-12",
@@ -18,7 +26,7 @@
       "version": "0.13.65",
       "date": "2026-09-12",
       "changes": [
-        "Saved chat portraits remain visible after approval and across history, renewing the exact retained candidate’s private URL. Duplicate suppression stays within one reply; status checks do not add images.",
+        "Saved chat portraits remain visible after approval and across history, renewing the exact retained candidate\u2019s private URL. Duplicate suppression stays within one reply; status checks do not add images.",
         "Invitations and character pages share channel-style tabs, yellow selections, theme-aware solid actions and readable hover states. Studio creation is compact, and ready draft guidance moves onto the badge."
       ]
     },
@@ -26,7 +34,7 @@
       "version": "0.13.64",
       "date": "2026-09-11",
       "changes": [
-        "Collection creation stays in the header and chat; a director’s Create episode action moves to Studio’s left episode list and works in empty channels.",
+        "Collection creation stays in the header and chat; a director\u2019s Create episode action moves to Studio\u2019s left episode list and works in empty channels.",
         "The sidebar brings together privacy, legal and contact icons with a single compact theme control. Home has no footer; unpublished character cards use teal and user chat bubbles use yellow with black text."
       ]
     },
