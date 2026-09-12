@@ -1,11 +1,20 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.13.76",
+  "version": "0.13.77",
   "minimum_supported_version": "0.12.1",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.13.77",
+      "date": "2026-09-12",
+      "changes": [
+        "Completed Photo booth pictures are public. Photo album automatically collects your character appearances, with private favorites and named albums; the booth shows your latest five pictures above the public universe-filtered gallery.",
+        "Character selection starts with your main character and three recent characters. Guest invitation search requires the selected character and searches only its universe; mixed-universe groups are rejected before generation.",
+        "Photos support happy, love, shocked, sad, scared and laugh reactions, plus Instagram device sharing and a download fallback. Website collection operations have authenticated MCP equivalents, with private organization and retained generation receipts."
+      ]
+    },
     {
       "version": "0.13.76",
       "date": "2026-09-12",
