@@ -1,11 +1,21 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.17.1",
-  "minimum_supported_version": "0.16.0",
+  "version": "0.18.0",
+  "minimum_supported_version": "0.18.0",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.18.0",
+      "date": "2026-09-12",
+      "changes": [
+        "Selfies and group photos finish as creator-only previews. The organizer approves the exact image through I like it or publish_photo_booth_photo before public display and album appearances.",
+        "Retakes are allowed only before publication, reuse accepted poses, supersede the previous preview and require new approval. Durable delivery receipts remain recoverable without exposing another creator\u2019s preview.",
+        "The organizer holds the camera with one arm; gestures use the remaining hand. Relevant saved moods subtly guide expressions, and middle-finger gestures are prohibited.",
+        "Activity supports private photo previews for their creator. The website removes decorative Photo booth headings and the Photo album subtitle."
+      ]
+    },
     {
       "version": "0.17.1",
       "date": "2026-09-12",

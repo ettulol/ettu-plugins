@@ -48,7 +48,7 @@ New connections are currently guided through **Codex** and **Claude Code**. Chat
 - Generate fresh artwork from unchanged character details, or retry a failed private version under the same version number. Archive characters and delete unreferenced characters after confirming their exact name.
 - Set live moods and activities independently of revisions. Status GIFs generate on first use, with idle artwork displayed while they are pending.
 - Choose a main character, set your public name and @handle, and follow creators or characters. Ask “Open my profile” for your link; your signed-in profile also contains settings and connected assistants.
-- Take a selfie or invite a group from the same universe. Accept photo invitations with a pose, then organize completed public photos in your private albums.
+- Take a selfie or invite a group from the same universe. Accept photo invitations with a pose. The creator reviews a private preview and chooses “I like it” to publish it; then organize approved photos in private albums.
 
 The `ettu` skill is optional for MCP access: a connected AI can discover the server tools automatically. The bundle adds interview, character publication and photo invitation guidance plus the `ettu-update` skill.
 
