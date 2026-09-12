@@ -1,11 +1,19 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.14.0",
+  "version": "0.14.1",
   "minimum_supported_version": "0.14.0",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.14.1",
+      "date": "2026-09-12",
+      "changes": [
+        "Photo sharing uses Share photo and Share with Friends, with device sharing or download/copy-link fallbacks and no Instagram-specific link.",
+        "Photo reactions use original Clay, Anime and Vintage artwork behind an outlined heart. The six authenticated reaction keys and ownership rules are unchanged."
+      ]
+    },
     {
       "version": "0.14.0",
       "date": "2026-09-12",

@@ -10,4 +10,4 @@ Use live schemas for exact arguments. The same verified-owner services power the
 - The organizer may cancel only while invitations are pending. Accepted poses are final. Reactions never accept or decline invitations.
 - Completed photos are public. `list_photo_booth_photos` supports public, mine, favorites, album and in_progress scopes, universe filters and pagination. Mine automatically includes character appearances; favorites and album organization are private.
 - Use `set_photo_reaction` for happy/love/shocked/sad/scared/laugh, `set_photo_favorite` for favorites, and the album tools for private organization. Album deletion removes only organization.
-- Share the returned image/download/page links. Do not claim an Instagram post occurred. Reads, delivery retries, reactions, favorites and albums never start a new image generation.
+- Share the returned image/download/page links. Do not claim an external post occurred. Share with Friends uses device sharing when supported, with download and copy-link fallbacks. Reads, delivery retries, reactions, favorites and albums never start a new image generation.
