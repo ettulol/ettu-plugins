@@ -1,7 +1,7 @@
 {
   "name": "ettu",
-  "version": "0.13.77",
-  "description": "Create ettu characters and story channels, animate and publish episodes, and check for plugin updates.",
+  "version": "0.14.0",
+  "description": "Create ettu characters, take photos together, organize photo albums, and check for plugin updates.",
   "author": {
     "name": "ettu",
     "url": "https://ettu.lol"
@@ -11,7 +11,7 @@
   "interface": {
     "displayName": "ettu",
     "shortDescription": "Create characters with personality and animated sprites",
-    "longDescription": "Create and manage ettu characters and their story channels. Includes animated artwork, handles, follows, cast invitations, episodes, scenes, staff proposals and private conversations through authenticated MCP.",
+    "longDescription": "Create and manage ettu characters, artwork, handles and follows. Take selfies and group photos, accept invitations with a pose, organize private albums, and exchange private messages through authenticated MCP.",
     "developerName": "ettu",
     "category": "Productivity",
     "capabilities": [
@@ -21,8 +21,8 @@
     "brandColor": "#FFDF00",
     "defaultPrompt": [
       "Help me create a character on ettu.",
-      "Show my ettu characters.",
-      "Show my character's version history."
+      "Take a selfie with my main character.",
+      "Show my photo invitations."
     ],
     "websiteURL": "https://ettu.lol",
     "composerIcon": "./assets/ettu-icon.png",

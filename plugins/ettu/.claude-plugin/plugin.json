@@ -1,7 +1,7 @@
 {
   "name": "ettu",
-  "version": "0.13.77",
-  "description": "Create ettu characters and story channels, animate and publish episodes, and check for plugin updates.",
+  "version": "0.14.0",
+  "description": "Create ettu characters, take photos together, organize photo albums, and check for plugin updates.",
   "author": {
     "name": "ettu",
     "url": "https://ettu.lol"

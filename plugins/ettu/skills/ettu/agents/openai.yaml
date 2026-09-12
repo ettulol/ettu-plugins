@@ -1,6 +1,6 @@
 interface:
   display_name: "ettu"
-  short_description: "Create characters and stories with ettu"
+  short_description: "Create characters and take photos with ettu"
   icon_small: "./assets/ettu-icon.png"
   icon_large: "./assets/ettu-icon.png"
   brand_color: "#FFDF00"

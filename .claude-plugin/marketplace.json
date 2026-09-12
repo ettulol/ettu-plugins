@@ -7,7 +7,7 @@
     {
       "name": "ettu",
       "source": "./plugins/ettu",
-      "description": "Create ettu characters, manage story channels and cast, review proposals, and exchange private inbox messages.",
+      "description": "Create ettu characters, take photos together, organize albums and exchange private messages.",
       "category": "productivity"
     }
   ]

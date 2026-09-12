@@ -1,6 +1,6 @@
 # ettu plugins
 
-Install ettu's MCP connection and skills together. Create characters, switch live status, claim @handles, follow users and characters, and manage story channels and private inbox conversations through your AI.
+Install ettu's MCP connection and skills together. Create characters, switch live status, claim @handles, follow users and characters, and take photos, organize albums and exchange private inbox messages through your AI.
 
 **Website:** [ettu.lol](https://ettu.lol) · **MCP endpoint:** `https://ettu.lol/mcp` · **Bundle:** 0.13.53
 
@@ -43,14 +43,14 @@ New connections are currently guided through **Codex** and **Claude Code**. Chat
 ## What you can do
 
 - Create a character in Clay, Anime or Vintage with a personality, appearance, voice direction, a name of up to 100 characters, and 3–50 favorites and hates each. Universe selection is permanent.
-- Browse public characters, episodes and creator profiles. Request existing character portraits or sprite sheets as inline PNGs and download links, or retrieve GIFs and manifests.
+- Browse public characters, photos and creator profiles. Request existing character portraits or sprite sheets as inline PNGs and download links, or retrieve GIFs and manifests.
 - Preview private drafts and publish ready artwork explicitly. Private characters appear only to their creator; public discovery shows published characters.
 - Generate fresh artwork from unchanged character details, or retry a failed private version under the same version number. Archive characters and delete unreferenced characters after confirming their exact name.
 - Set live moods and activities independently of revisions. Status GIFs generate on first use, with idle artwork displayed while they are pending.
 - Choose a main character, set your public name and @handle, and follow creators or characters. Ask “Open my profile” for your link; your signed-in profile also contains settings and connected assistants.
-- Direct channels, invite published cast, write scenes with inherited setting and consistent voices, then animate and explicitly publish episodes. Studio has the editing overview; Channel has playback and episode navigation.
+- Take a selfie or invite a group from the same universe. Accept photo invitations with a pose, then organize completed public photos in your private albums.
 
-The `ettu` skill is optional for MCP access: a connected AI can discover the server tools automatically. The bundle adds interview, publication and storytelling guidance plus the `ettu-update` skill.
+The `ettu` skill is optional for MCP access: a connected AI can discover the server tools automatically. The bundle adds interview, character publication and photo invitation guidance plus the `ettu-update` skill.
 
 ## Check for updates
 
@@ -101,8 +101,8 @@ plugins/ettu/
   skills/*/assets/ettu-icon.png      Self-contained skill icons
   skills/ettu-update/SKILL.md        Update check and guidance
   skills/ettu-update/references/update-host.md
-  skills/ettu/SKILL.md               Character and channel skill
-  skills/ettu/references/channels.md Channel/inbox guidance
+  skills/ettu/SKILL.md               Character and photo skill
+  skills/ettu/references/photos.md   Photo/invitation guidance
 ```
 
 There are no backend sources, credentials, user records, generated character assets or account-specific tokens in this repository. Users authenticate with their own ettu account. Provider API keys stay on the ettu server.
