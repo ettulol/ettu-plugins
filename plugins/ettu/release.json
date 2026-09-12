@@ -1,11 +1,20 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.14.1",
-  "minimum_supported_version": "0.14.0",
+  "version": "0.15.0",
+  "minimum_supported_version": "0.15.0",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.15.0",
+      "date": "2026-09-12",
+      "changes": [
+        "Approving a new character publishes its reviewed picture immediately. Extra angles and a face portrait run independently in the background; MCP can inspect and retry failed extra artwork without replacing the approved look.",
+        "Photo pose prompts stay private to their authors; background and occasion stay with the organizer. Infer selfie or group mode from selected guests. Favorites is built in alongside up to five custom albums.",
+        "Home shows Latest characters and Latest photos. Account and creator avatars prefer the main character\u2019s face portrait, with the approved picture as fallback."
+      ]
+    },
     {
       "version": "0.14.1",
       "date": "2026-09-12",
