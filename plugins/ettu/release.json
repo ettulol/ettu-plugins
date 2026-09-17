@@ -1,11 +1,19 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.20.1",
+  "version": "0.20.2",
   "minimum_supported_version": "0.18.0",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.20.2",
+      "date": "2026-09-17",
+      "changes": [
+        "Motions are available to every account: create_motion no longer depends on a per-account rollout, and Home shows Latest motions to everyone.",
+        "On the website a finished motion plays inside its tile when clicked; its title still opens the motion's page."
+      ]
+    },
     {
       "version": "0.20.1",
       "date": "2026-09-17",
