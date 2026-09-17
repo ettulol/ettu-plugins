@@ -1,11 +1,23 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.19.0",
+  "version": "0.20.0",
   "minimum_supported_version": "0.18.0",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.20.0",
+      "date": "2026-09-17",
+      "changes": [
+        "Ettu credits: paid tools first return an account-bound 15-minute credit_quote_required quote. Explain the price, then retry the same tool, arguments and request_key with credit_authorization only after the user confirms that purchase. Read prices with get_credit_catalog and balances with get_credit_balance; eligible new accounts receive 200 promotional credits once. Hosted chat is free within the limits reported by get_free_chat_limits.",
+        "Motions are short upright 9:16 videos of one to three same-universe characters, 4 or 8 seconds at 30 credits per second, with background sound only. create_motion is listed only while Motions is enabled for the account; invitations, private previews, publication, retakes, deletion, reactions and Activity reuse the photo tools, and list_photo_booth_photos accepts kind=motion.",
+        "Group photos can include your own additional characters through owned_character_poses without invitations. Optional five-emoji invitation codes protect group-photo invitations: check get_photo_invitation_requirements and verify_photo_invitation_code before inviting, and never echo or guess a code.",
+        "Photo framing preserves every pose and prop: an unseen photographer replaces the handheld selfie when the organizer has no free hand. Photos provide a 640-pixel thumbnail_url, and scope=public with a character UUID lists every published photo featuring that character.",
+        "Creating or restyling a character draws one full-body picture; approval and publication are free and start no further artwork, and the approved picture is the profile avatar. Extra angles remain a separate explicit request.",
+        "Activity accepts kind=needs_response to find the exact items behind the waiting count. Hosted chat stays on Ettu topics, shows approval cards instead of asking for written confirmation, and reports creation-interview progress that cancel_assistant_creation can stop."
+      ]
+    },
     {
       "version": "0.19.0",
       "date": "2026-09-12",
