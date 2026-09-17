@@ -1,11 +1,18 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.20.2",
+  "version": "0.20.3",
   "minimum_supported_version": "0.18.0",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.20.3",
+      "date": "2026-09-17",
+      "changes": [
+        "Published character reads may include assets.thumbnail, a 640-pixel WebP of the portrait for cards, lists and avatars. assets.portrait remains the full picture; the small copy uses no AI or credits and is withdrawn with its portrait."
+      ]
+    },
     {
       "version": "0.20.2",
       "date": "2026-09-17",
