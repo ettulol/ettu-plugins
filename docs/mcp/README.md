@@ -34,7 +34,7 @@ Paid tools return credit_quote_required with an account-bound 15-minute quote be
 
 Cash refunds/disputes follow the original purchase; already spent reversed credits create debt and restrict spending. MCP cannot grant credits or perform financial administration. Direct requests for manual adjustments to Ettu support.
 
-Chat is free to customers, including model/tool steps, with default limits of 200 user messages per conversation, 2,000 per account per UTC day and 6 per minute. There is no shared daily message cap across accounts. get_free_chat_limits reports current limits; new chats do not reset account usage. Starting a new chat does not delete earlier conversations; normal storage limits still apply. Opening chat never calls a model. Artwork tools retain their paid confirmation requirements in website chat and external MCP. Eligible newly admitted accounts receive 200 promotional credits once, without recurring refills or historical backfills. cancel_credit_operation releases unused reservations; submitted attempts settle on delivery; undelivered attempts time out after 24 hours, with unused credits released when reconciliation runs. Outages can delay release. Late output cannot reopen refunded work. Financial and idempotency receipts survive artwork deletion/pruning.
+Chat is free to customers, including model/tool steps, with default limits of 200 user messages per conversation, 300 per account per UTC day and 6 per minute. Ettu can set a different daily allowance for an account. There is no shared daily message cap across accounts. get_free_chat_limits reports the limits that apply to this account; new chats do not reset account usage. Starting a new chat does not delete earlier conversations; normal storage limits still apply. Opening chat never calls a model. Artwork tools retain their paid confirmation requirements in website chat and external MCP. Eligible newly admitted accounts receive 200 promotional credits once, without recurring refills or historical backfills. cancel_credit_operation releases unused reservations; submitted attempts settle on delivery; undelivered attempts time out after 24 hours, with unused credits released when reconciliation runs. Outages can delay release. Late output cannot reopen refunded work. Financial and idempotency receipts survive artwork deletion/pruning.
 
 ## Characters
 
@@ -458,7 +458,7 @@ Scope: characters:read. Annotations: `{"readOnlyHint":true,"destructiveHint":fal
 
 ### get_my_invitation_settings
 
-Read your own optional group-photo emoji-code status, version, onboarding state and 20 emoji choices. Never returns a code or hash. No other user's private settings are readable.
+Read your own optional group-photo emoji-code status, version, onboarding state and 20 emoji choices. New accounts start with a random code that the owner can reveal, replace or remove; has_code says whether one is set now. Never returns a code or hash. No other user's private settings are readable.
 
 Scope: characters:read. Annotations: `{"readOnlyHint":true,"destructiveHint":false,"idempotentHint":true,"openWorldHint":false}`.
 

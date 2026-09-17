@@ -1,11 +1,20 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.20.0",
+  "version": "0.20.1",
   "minimum_supported_version": "0.18.0",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.20.1",
+      "date": "2026-09-17",
+      "changes": [
+        "Free chat now allows 300 messages per account per UTC day by default; Ettu can set a different daily allowance for an account. get_free_chat_limits reports the limits that apply to the signed-in account.",
+        "New accounts start with a random five-emoji group-photo invitation code that their owner can reveal, replace or remove. Read has_code from get_my_invitation_settings before saying whether a code is set.",
+        "Creating an account on the website now asks for a date of birth: under 13 cannot sign up, and under 18 confirms a parent or guardian's permission. Connected assistants never see or collect it."
+      ]
+    },
     {
       "version": "0.20.0",
       "date": "2026-09-17",
