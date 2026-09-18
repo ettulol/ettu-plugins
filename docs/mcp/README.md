@@ -34,7 +34,7 @@ Paid tools return credit_quote_required with an account-bound 15-minute quote be
 
 Cash refunds/disputes follow the original purchase; already spent reversed credits create debt and restrict spending. MCP cannot grant credits or perform financial administration. Direct requests for manual adjustments to Ettu support.
 
-Chat is free to customers, including model/tool steps, with default limits of 200 user messages per conversation, 300 per account per UTC day and 6 per minute. Ettu can set a different daily allowance for an account. There is no shared daily message cap across accounts. get_free_chat_limits reports the limits that apply to this account; new chats do not reset account usage. Starting a new chat does not delete earlier conversations; normal storage limits still apply. Opening chat never calls a model. Artwork tools retain their paid confirmation requirements in website chat and external MCP. Eligible newly admitted accounts receive 200 promotional credits once, without recurring refills or historical backfills. cancel_credit_operation releases unused reservations; submitted attempts settle on delivery; undelivered attempts time out after 24 hours, with unused credits released when reconciliation runs. Outages can delay release. Late output cannot reopen refunded work. Financial and idempotency receipts survive artwork deletion/pruning.
+Chat is free to customers, including model/tool steps, with default limits of 200 user messages per conversation, 300 per account per UTC day and 6 per minute. Ettu can set a different daily allowance for an account. There is no shared daily message cap across accounts. get_free_chat_limits reports the limits that apply to this account; new chats do not reset account usage. Chat also needs at least the cheapest priced operation's credits available (credits_minimum, credits_available and credits_blocked in that read); an account below it is told to reload credits and no reply is made. Starting a new chat does not delete earlier conversations; normal storage limits still apply. Opening chat never calls a model. Artwork tools retain their paid confirmation requirements in website chat and external MCP. Eligible newly admitted accounts receive 200 promotional credits once, without recurring refills or historical backfills. cancel_credit_operation releases unused reservations; submitted attempts settle on delivery; undelivered attempts time out after 24 hours, with unused credits released when reconciliation runs. Outages can delay release. Late output cannot reopen refunded work. Financial and idempotency receipts survive artwork deletion/pruning.
 
 ## Characters
 
@@ -215,7 +215,7 @@ The fields below summarize inputs. `?` means optional. See [contract.json](contr
 | [regenerate_character_image](#regenerate_character_image) | `characters:write` | id: UUID; version: integer; credit_authorization?: object; expected_version: integer; expected_revision_id: UUID; request_key: UUID; image_id: UUID; changes?: string |
 | [rename_assistant_conversation](#rename_assistant_conversation) | `characters:write` | id: UUID; title: string |
 | [rename_character](#rename_character) | `characters:write` | id: UUID; name: string; expected_name: string |
-| [report_content](#report_content) | `characters:write` | kind: "photo" \| "motion" \| "character"; id: UUID; category: "style" \| "broken" \| "spam" \| "harassment" \| "hate" \| "sexual" \| "violence" \| "minor" \| "other"; note?: string = ""; request_key: UUID |
+| [report_content](#report_content) | `characters:write` | kind: "photo" \| "motion" \| "character"; id: UUID; category: "style" \| "broken" \| "spam" \| "harassment" \| "unsafe" \| "other"; note?: string = ""; request_key: UUID |
 | [request_character_angles](#request_character_angles) | `characters:write` | id: UUID; version: integer; credit_authorization?: object; expected_revision_id: UUID; expected_version: integer; request_key: UUID |
 | [resolve_ettu_handle](#resolve_ettu_handle) | `characters:read` | target: string; type?: "user" \| "character" |
 | [respond_assistant_action](#respond_assistant_action) | `characters:write` | id: UUID; run_id: UUID; tool_call_id: UUID; approve: boolean; confirmation_name?: string |
@@ -445,7 +445,7 @@ Scope: characters:read. Annotations: `{"readOnlyHint":true,"destructiveHint":fal
 
 ### get_free_chat_limits
 
-Read your free conversation, daily account and rate limits. Messages never deduct credits; new chats do not reset account-wide usage.
+Read your free conversation, daily account and rate limits. Messages never deduct credits; new chats do not reset account-wide usage. Chat also needs at least the cheapest priced operation's credits available: credits_available, credits_minimum and credits_blocked report it, and a blocked account must reload credits before any reply is made.
 
 Scope: characters:read. Annotations: `{"readOnlyHint":true,"destructiveHint":false,"idempotentHint":true,"openWorldHint":false}`.
 
@@ -643,7 +643,7 @@ Scope: characters:write. Annotations: `{"readOnlyHint":false,"destructiveHint":f
 
 ### report_content
 
-Report a published photo, motion or character on the user's behalf, only when they ask to report it. kind is photo, motion or character with its id. category is one of style, broken, spam, harassment, hate, sexual, violence, minor or other; other needs a note (up to 500 characters). Reports are anonymous: the creator is never told who reported. One open report per member and item, a repeat with a new request_key updates it, at most 20 per day, and owners cannot report their own work. Reply that the team will review it; never predict the outcome, and never claim an item was hidden or removed.
+Report a published photo, motion or character on the user's behalf, only when they ask to report it. kind is photo, motion or character with its id. category is one of style, broken, spam, harassment, unsafe (inappropriate or unsafe content) or other; other needs a note (up to 500 characters). Reports are anonymous: the creator is never told who reported. One open report per member and item, a repeat with a new request_key updates it, at most 20 per day, and owners cannot report their own work. Reply that the team will review it; never predict the outcome, and never claim an item was hidden or removed.
 
 Scope: characters:write. Annotations: `{"readOnlyHint":false,"destructiveHint":false,"idempotentHint":true,"openWorldHint":false}`.
 

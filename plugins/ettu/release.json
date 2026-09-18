@@ -1,11 +1,19 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.20.4",
+  "version": "0.20.5",
   "minimum_supported_version": "0.18.0",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.20.5",
+      "date": "2026-09-18",
+      "changes": [
+        "report_content offers six reasons: style, broken, spam, harassment, unsafe (inappropriate or unsafe content) and other. Sexual, violent and hateful content all use unsafe; there is no separate minor reason.",
+        "Chat needs at least the cheapest priced operation's credits available. get_free_chat_limits reports credits_available, credits_minimum and credits_blocked; when blocked, tell the user to reload credits before chatting again. Messages still never deduct credits."
+      ]
+    },
     {
       "version": "0.20.4",
       "date": "2026-09-18",
