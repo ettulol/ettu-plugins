@@ -1,11 +1,19 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.20.3",
+  "version": "0.20.4",
   "minimum_supported_version": "0.18.0",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.20.4",
+      "date": "2026-09-18",
+      "changes": [
+        "report_content sends an anonymous report about a public photo, motion or character to Ettu's team, only when the user asks to report it. Say the team will review it and never predict the outcome; owners cannot report their own work.",
+        "A moderation field on the user's own photos, motions or characters means the item is under review and hidden from the public for now; it stays visible to its creator and participants."
+      ]
+    },
     {
       "version": "0.20.3",
       "date": "2026-09-17",

@@ -90,6 +90,8 @@ New photos receive an automatically selected scene title of at most six letters,
 
 Published character rows with `assets` (`get_public_character`, the character in `get_public_profile`, and `list_creator_characters`) may include `assets.thumbnail`: a verified WebP of the portrait bounded to 640 pixels per side, for cards, lists and avatars. It is made by local resizing of the verified original with no AI call or credit charge, is absent until delivery completes, and is withdrawn and purged with its portrait. `assets.portrait` remains the full picture for profiles, downloads and generation references, and creator `avatar_url` values use the small copy once it exists.
 
+Members can report a published photo, motion or character with `report_content` (`kind`, `id`, `category`, optional `note`, durable `request_key`). Reports are anonymous, one open report per member and item (a repeat with a new key updates it), at most 20 per day, and never for the member's own work. Assistants say the team will review it and never predict or announce an outcome. An item under review disappears from public reads; its organizer, participants or owner see a `moderation` object (`held_since`, `message`) on their own reads, including `get_photo_booth_photo`, `list_photo_booth_photos`, `get_character` and `list_characters`, and a held character cannot join new photos or motions or get new versions or artwork. Moderation itself (the queue, hiding, unhiding, dismissing or removing) is a website-only operator capability: no MCP tool, hosted-chat action or plugin instruction exists for it, and the contract check fails if one appears.
+
 Approved photo reads also return an optional `thumbnail_url`: a verified WebP bounded to 640 pixels per side for gallery display. Use `image_url` for full-size views and `download_url` for downloads. Thumbnails use local resizing/compression of the retained original, with no AI call or credit charge. The field is null until delivery completes and for private previews. Deletion revokes and purges both copies.
 
 Share `photo_url` when sending a page link: approved public photos supply their own PNG and title for link previews in messaging apps. Private, unfinished and deleted photos expose no image in public preview metadata. Preview display and refresh timing depend on the receiving app. Copy photo link is available alongside native image sharing in the website’s Share with Friends dialog; copying or previewing a link never generates an image or posts externally.
@@ -141,7 +143,7 @@ The publisher regenerates this README and JSON together from the application rep
 ## Generated tool inventory
 
 <!-- BEGIN GENERATED MCP CONTRACT -->
-There are **94 tools**: 5 baseline, 38 read-scoped, and 51 write-scoped. Every HTTP MCP request still requires an authorized ettu OAuth token.
+There are **95 tools**: 5 baseline, 38 read-scoped, and 52 write-scoped. Every HTTP MCP request still requires an authorized ettu OAuth token.
 
 The fields below summarize inputs. `?` means optional. See [contract.json](contract.json) for exact JSON Schemas, nested properties, defaults, descriptions and annotations. Additional runtime/database checks are described above.
 
@@ -213,6 +215,7 @@ The fields below summarize inputs. `?` means optional. See [contract.json](contr
 | [regenerate_character_image](#regenerate_character_image) | `characters:write` | id: UUID; version: integer; credit_authorization?: object; expected_version: integer; expected_revision_id: UUID; request_key: UUID; image_id: UUID; changes?: string |
 | [rename_assistant_conversation](#rename_assistant_conversation) | `characters:write` | id: UUID; title: string |
 | [rename_character](#rename_character) | `characters:write` | id: UUID; name: string; expected_name: string |
+| [report_content](#report_content) | `characters:write` | kind: "photo" \| "motion" \| "character"; id: UUID; category: "style" \| "broken" \| "spam" \| "harassment" \| "hate" \| "sexual" \| "violence" \| "minor" \| "other"; note?: string = ""; request_key: UUID |
 | [request_character_angles](#request_character_angles) | `characters:write` | id: UUID; version: integer; credit_authorization?: object; expected_revision_id: UUID; expected_version: integer; request_key: UUID |
 | [resolve_ettu_handle](#resolve_ettu_handle) | `characters:read` | target: string; type?: "user" \| "character" |
 | [respond_assistant_action](#respond_assistant_action) | `characters:write` | id: UUID; run_id: UUID; tool_call_id: UUID; approve: boolean; confirmation_name?: string |
@@ -637,6 +640,12 @@ Scope: characters:write. Annotations: `{"readOnlyHint":false,"destructiveHint":f
 Rename your character immediately without creating a version, changing artwork, starting generation or publishing a draft. The name changes on its existing public profile if published. Read get_character_settings for its current name; supply it as expected_name. Names contain 1–100 characters. Only the verified owner can rename; unarchive first. Reuse original arguments after a lost response. Saved creative descriptions, interviews, generation requests and generation snapshots remain intact. Use this for name-only changes; use update_character for agreed changes to appearance, clothing, personality or other creative details.
 
 Scope: characters:write. Annotations: `{"readOnlyHint":false,"destructiveHint":false,"idempotentHint":true}`.
+
+### report_content
+
+Report a published photo, motion or character on the user's behalf, only when they ask to report it. kind is photo, motion or character with its id. category is one of style, broken, spam, harassment, hate, sexual, violence, minor or other; other needs a note (up to 500 characters). Reports are anonymous: the creator is never told who reported. One open report per member and item, a repeat with a new request_key updates it, at most 20 per day, and owners cannot report their own work. Reply that the team will review it; never predict the outcome, and never claim an item was hidden or removed.
+
+Scope: characters:write. Annotations: `{"readOnlyHint":false,"destructiveHint":false,"idempotentHint":true,"openWorldHint":false}`.
 
 ### request_character_angles
 
