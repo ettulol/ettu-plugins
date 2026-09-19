@@ -1,11 +1,21 @@
 {
   "schema_version": 1,
   "plugin": "ettu",
-  "version": "0.20.5",
+  "version": "0.20.6",
   "minimum_supported_version": "0.18.0",
   "repository_url": "https://github.com/ettulol/ettu-plugins",
   "latest_manifest_url": "https://api.github.com/repos/ettulol/ettu-plugins/contents/plugins/ettu/release.json",
   "releases": [
+    {
+      "version": "0.20.6",
+      "date": "2026-09-19",
+      "changes": [
+        "A character's profile now belongs to its version, because saving any of those fields creates a new one. get_character returns the character's identity and state — name, universe, current_version, published_version, status, publication, archive, handle, moderation and current artwork — and no longer carries definition, interview, artwork warnings, generation settings or include_generated_frames. Read get_character_version for those, naming the version you mean.",
+        "get_character_version reports current_version, the character's current version, so an edit based on any version can be read and saved in one call; pass it as expected_version.",
+        "Character reads no longer return the image models' drawing prompts. generation_spec keeps its settings, such as recipe, style, imageModel, imageRequest, framingPolicy, referencePolicy, identitySource and artworkEdit, without prompt, viewPrompt, animationPrompt or portraitPrompt.",
+        "search_songs finds a song in Apple's catalog so a photo or motion can note what a character is listening to. It is read-only and needs no connected account. Showing a result requires Apple's badge and trademark credit, and a preview is a 30-second clip."
+      ]
+    },
     {
       "version": "0.20.5",
       "date": "2026-09-18",
